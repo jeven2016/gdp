@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="h2Unit" transaction-type="RESOURCE_LOCAL">
+        <class>zjtech.dmf.dao.entity.SuperAdminEntity</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:file:/opt/projects/allProjects/smf_admin"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.connection.username" value="admin"/>
+            <property name="hibernate.connection.password" value="admin123"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+            <!--设置外连接抓取树的最大深度 -->
+            <property name="hibernate.max_fetch_depth" value="3" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="mysqlUnit" transaction-type="RESOURCE_LOCAL">
+        <class>zjtech.dmf.dao.entity.SuperAdminEntity</class>
+        <class>AddressEntity</class>
+        <class>PersonEntity</class>
+        <class>CountryEntity</class>
+        <class>zjtech.entity.CountryPersonEntity</class>
+        <class>LogEntity</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/smf_admin"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username"/>
+            <property name="hibernate.connection.password"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+            <property name="Hibernate.default_schema" value="smf_admin"/>
+            <!--设置外连接抓取树的最大深度 -->
+            <property name="hibernate.max_fetch_depth" value="3" />
+        </properties>
+
+    </persistence-unit>
+</persistence>

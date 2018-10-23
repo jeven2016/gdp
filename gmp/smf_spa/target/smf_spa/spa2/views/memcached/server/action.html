@@ -1,0 +1,108 @@
+<form id="memcachedServerForm" class="form-horizontal" role="form">
+    <div id="error2"></div>
+    <div class="box-content">
+        <blockquote>
+            <span data-bind="i18n: 'common.add'"/>
+            <span data-bind="i18n: 'server.mgnt.cache.memcached'"/>
+            <small data-bind="i18n:'server.mgnt.cache.memcached.info.add'">这里可以添加一个Memcached服务器<cite title="">。</cite>
+            </small>
+            <small data-bind="i18n:'server.mgnt.cache.memcached.info.configure.cluster'">
+                当系统配置了多个Memcached服务器，您可以将这些服务器组合成集群，以便提供更强的缓存能力。
+            </small>
+        </blockquote>
+        <div id="name_group" class="form-group has-feedback">
+            <label class="col-sm-2 control-label" data-bind="i18n:'server.mgnt.cache.memcached.server.name'">名称</label>
+
+            <div class="col-sm-5">
+                <input name="name" id="name"
+                       data-bind="value: name, placeholder:'server.mgnt.cache.memcached.placeholder.name'" type="text"
+                       class="form-control"/>
+                <span id="name_icon" class="glyphicon form-control-feedback"></span>
+            </div>
+            <div class="col-sm-5" id="name_error">
+            </div>
+        </div>
+        <div id="address_group" class="form-group has-feedback">
+            <label class="col-sm-2 control-label"
+                   data-bind="i18n:'server.mgnt.cache.memcached.server.address'">地址</label>
+
+            <div class="col-sm-5">
+                <input id="address" name="address"
+                       data-bind="value: address,placeholder:'server.mgnt.cache.memcached.placeholder.address'"
+                       type="text"
+                       class="form-control"/>
+                <span id="address_icon" class="glyphicon form-control-feedback"></span>
+            </div>
+            <div class="col-sm-5" id="address_error">
+
+            </div>
+        </div>
+        <div id="port_group" class="form-group has-feedback">
+            <label class="col-sm-2 control-label" data-bind="i18n:'server.mgnt.cache.memcached.server.port'">端口</label>
+
+            <div class="col-sm-5">
+                <input id="port" name="port"
+                       data-bind="value: port,placeholder:'server.mgnt.cache.memcached.placeholder.port'" type="text"
+                       class="form-control"/>
+                <span id="port_icon" class="glyphicon form-control-feedback"></span>
+            </div>
+            <div class="col-sm-5" id="port_error">
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"
+                   data-bind="i18n:'server.mgnt.cache.memcached.server.enable'">启用</label>
+
+            <div class="col-sm-5">
+                <div class="btn-group" data-toggle="buttons">
+                    <label data-bind="css : updateYesOptionCss, click: switchEnableWidget.bind($data,true)">
+                        <span data-bind="i18n:'server.mgnt.cache.memcached.server.enable.yes'"/>
+                    </label>
+                    <label data-bind="css : updateNoOptionCss, click: switchEnableWidget.bind($data,false)">
+                        <span data-bind="i18n:'server.mgnt.cache.memcached.server.enable.no'"/>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-5">
+
+            </div>
+        </div>
+        <div id="description_group" class="form-group has-feedback">
+            <label class="col-sm-2 control-label"
+                   data-bind="i18n:'server.mgnt.cache.memcached.server.description'">描述</label>
+
+            <div class="col-sm-5">
+                    <textarea id="description" name="description"
+                              data-bind="value: description,placeholder:'server.mgnt.cache.memcached.placeholder.description'"
+                              rows="4"
+                              style="width:100%"/>
+                <span id="description_icon" class="glyphicon form-control-feedback"></span>
+            </div>
+            <div class="col-sm-5" id="description_error">
+
+            </div>
+        </div>
+
+
+        <div class="form-group center">
+            <div class="col-lg-7 ">
+                <a data-bind="click: save, i18n: 'common.button.save'" class="btn btn-primary btn-md">保存</a>
+                <!-- <c:if test="${not empty currentOper and currentOper == 'add'}">
+                     <a href="#" link="${WEB_CONTEXT_PATH}/servers/memcached/server/${currentOper}" onclick="submitForm(this,'您确定要保存吗')"
+                        class="btn btn-primary btn-md">保存</a>
+                 </c:if>
+                 <c:if test="${not empty currentOper and currentOper == 'update'}">
+                     <a href="#" link="${WEB_CONTEXT_PATH}/servers/memcached/server/${MemcachedServer.id}/update" onclick="submitForm(this,'您确定要保存吗')" class="btn btn-primary btn-md">保存</a>
+                 </c:if>-->
+                <a data-bind="click: back,i18n: 'common.button.back'" class="btn btn-default btn-md">返回</a>
+                    <span class="pull-right">
+                        <a id="testConnection" href="#"
+                           data-bind="click: testConnection, i18n:'server.mgnt.cache.memcached.server.test'"
+                           class="btn btn-info btn-md">测试连接</a>
+                    </span>
+            </div>
+        </div>
+    </div>
+</form>

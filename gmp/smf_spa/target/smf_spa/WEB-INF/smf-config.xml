@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+
+
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- <mvc:annotation-driven enable-matrix-variables="true"/>-->
+
+    <!-- 通知Spring MVC引用指定的验证器 -->
+    <mvc:annotation-driven validator="validator">
+
+    </mvc:annotation-driven>
+
+    <!-- properties 文件 -->
+    <!--<context:property-placeholder location="classpath:locale.properties"/>-->
+
+    <context:component-scan base-package="zjtech.smf"/>
+
+    <!-- 国际化资源文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>classpath:locale/res</value>
+                <!-- <value>classpath:ValidationMessages</value>-->
+            </list>
+        </property>
+        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="cacheSeconds" value="60"/>
+    </bean>
+
+    <!-- 基于HttpSession进行国际化的语言切换 -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+    <mvc:interceptors>
+        <!-- 国际化拦截器采用基于（请求/Session/Cookie）需配置 -->
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- 使用Hibernate Validation 组件进行Bean Validation（基于JSR303） -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+
+    <!-- 文件上传配置注意:这里申明的id必须为multipartResolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="500000"/>
+    </bean>
+
+    <!-- 简单的异常处理 -->
+    <!--  <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+          <property name="exceptionMappings">
+              <props>
+                  &lt;!&ndash; 映射目录为/WEB-INF/jsp/error/upload_error.jsp &ndash;&gt;
+                  <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">/error/upload_error</prop>
+              </props>
+          </property>
+      </bean>-->
+
+    <!-- 类型转换及数据格式化 -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+
+    <!-- 静态资源默认处理
+   在Spring MVC上下文中定义一个org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler，它会像一个检查员，
+   对进入DispatcherServlet的URL进行筛查，如果发现是静态资源的请求，就将该请求转由Web应用服务器默认的Servlet处理，如果不是静态资源的请求，
+   才由DispatcherServlet继续处理。一般Web应用服务器默认的Servlet名称是"default"，因此DefaultServletHttpRequestHandler可以找到它。
+   如果你所有的Web应用服务器的默认Servlet名称不是"default"，则需要通过default-servlet-name属性显示指定：-->
+    <mvc:default-servlet-handler/>
+
+
+    <!--<mvc:locale location="/,classpath:/test_META-INF/publicResources/" mapping="/locale/**"/>-->
+    <!-- <mvc:resources mapping="/libs/**" location="/libs/" cache-period="0"/>-->
+    <!--<mvc:resources mapping="/viewmodels/**" location="/viewmodels/" cache-period="0"/>
+    <mvc:resources mapping="/views/**" location="/views/" cache-period="0"/>-->
+
+    <!-- 默认根路径跳转,这里使用SPA首页地址 -->
+    <mvc:view-controller path="/" view-name="index.html"/>
+
+    <!-- 使用AspectJ创建类的代理，由此可以AOP拦截Controller -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+    <!-- 拦截器-->
+    <!--   <mvc:interceptors>
+           <mvc:interceptor>
+               <mvc:mapping path="/**"/>
+               <bean class="com.hz.sunday.portalvip.interceptor.PermissionInterceptor">
+                   <property name="uncheckUrls">
+                       <list>
+                           <value>/login</value>
+                           <value>/doLogin</value>
+
+                       </list>
+                   </property>
+               </bean>
+           </mvc:interceptor>
+       </mvc:interceptors>-->
+
+    <import resource="view-config.xml"/>
+    <import resource="bmfService-config.xml"/>
+</beans>

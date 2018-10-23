@@ -1,0 +1,43 @@
+body {
+    /*font-size: 13px;*/
+}
+
+.label_width {
+    width: 50px;
+}
+
+.global_error {
+    color: #FF0000;
+    list-style-type: none;
+    font-size: 1.5em;
+    margin: 0.8em;
+}
+
+.login-box {
+    /*filter:alpha(opacity=50); /!*ie滤镜*!/
+    -moz-opacity:0.5; /!*Firefox私有*!/
+    opacity:0.5;/!*其他*!/*/
+}
+
+.box-content {
+    padding: 8px 30px;
+}
+
+.alert {
+    padding: 9px;
+}
+
+.alpha160 {
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.6);
+    /* For IE 5.5 - 7*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+.pagination {
+    margin: 0 auto;
+}

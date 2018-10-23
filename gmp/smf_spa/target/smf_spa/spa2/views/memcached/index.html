@@ -1,0 +1,58 @@
+<!--
+page: spa/views/memcached/index.html
+description: Home page for memcached servers configuration
+version: 1.0
+update: NA
+-->
+<div class="row">
+
+    <div class="col-md-12">
+        <div>
+            <ul class="breadcrumb">
+                <li>
+                    <i class="glyphicon glyphicon-home"></i>&nbsp;<span data-bind="i18n: 'server.mgnt'">服务器管理</span>
+                </li>
+                <li>
+                    <span data-bind="i18n: 'server.mgnt.cache'">缓存服务器</span>
+                </li>
+                <li>
+                    <span data-bind="i18n: 'server.mgnt.cache.memcached'">Memcached服务器</span>
+                </li>
+            </ul>
+        </div>
+        <div class="box-inner">
+            <div class="box-header well">
+                <h2><i class="glyphicon glyphicon-th"></i>
+                    <span data-bind="i18n: 'server.mgnt.cache.memcached'">Memcached服务器</span>
+                </h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i
+                            class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div style="padding:10px 10px">
+                    <!-- display server/cluster/advance tab -->
+                    <ul id="memcachedTab" class="nav nav-tabs" data-bind="foreach: router.navigationModel">
+                        <!-- 只显示tab页类型-->
+                        <!-- ko if: $data.type == "tab" -->
+                        <li data-bind="css: { active: $parent.isTabSelected($data) }">
+                            <a data-bind="attr: {href: hash,tabId:tabId}, text: title"></a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane active" data-bind="router: { transition:'entrance' }">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

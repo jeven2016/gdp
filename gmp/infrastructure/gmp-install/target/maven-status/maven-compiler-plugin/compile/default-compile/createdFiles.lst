@@ -1,0 +1,5 @@
+zjtech/bmf/inject/zjtech/install/util/BaseDbMgnt.class
+zjtech/bmf/inject/zjtech/install/util/IDbMgnt.class
+zjtech/bmf/inject/zjtech/install/util/H2DatabaseMgnt.class
+zjtech/bmf/inject/zjtech/install/util/IDbEvent.class
+zjtech/bmf/inject/zjtech/install/util/InstallUtilException.class

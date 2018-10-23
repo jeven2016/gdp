@@ -1,0 +1,143 @@
+<div class="tab-pane fade in active" id="cluster">
+
+    <span class="download-buttons pull-left" style="margin-top:10px">
+        <a data-bind="click: function(data,event){ action('add')}"
+           class="btn btn-primary btn-md">
+            <i class="glyphicon glyphicon-plus"></i> <span data-bind="i18n: 'common.add'"></span></a>
+        <a id="delSelected" href="#" class="btn btn-default btn-md"><i class="glyphicon glyphicon-remove"></i>
+            <span data-bind="i18n: 'common.delete'"></span>
+        </a>
+
+         <div class="btn-group" role="group">
+             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                 <i class="glyphicon glyphicon-search"></i>
+                 <span data-bind="i18n: 'common.search'"></span>
+                 <span class="caret"></span>
+             </button>
+             <div class="dropdown-menu">
+                 <div class="input-group">
+                     <input type="text" class="form-control" placeholder="Recipient's username"
+                            aria-describedby="basic-addon2">
+                     <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                 </div>
+             </div>
+         </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <i class="glyphicon glyphicon-filter"></i>
+                <span data-bind="i18n: 'common.filter'"/>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><i class="glyphicon whitespace"></i><input type="checkbox"/>&nbsp;&nbsp;<strong
+                        data-bind="i18n:'server.mgnt.cache.memcached.server.name'">名称</strong></li>
+                <li><i class="glyphicon whitespace"></i><input type="checkbox"/>&nbsp;&nbsp;<strong
+                        data-bind="i18n:'server.mgnt.cache.memcached.server.address'">地址</strong></li>
+                <li><i class="glyphicon whitespace"></i><input type="checkbox"/>&nbsp;&nbsp;<strong
+                        data-bind="i18n:'server.mgnt.cache.memcached.server.port'">端口</strong></li>
+                <li><i class="glyphicon whitespace"></i><input type="checkbox"/>&nbsp;&nbsp;<strong
+                        data-bind="i18n:'server.mgnt.cache.memcached.server.enable'">启用</strong></li>
+                <li><i class="glyphicon whitespace"></i><input type="checkbox"/>&nbsp;&nbsp;<strong
+                        data-bind="i18n:'server.mgnt.cache.memcached.server.description'">描述</strong></li>
+            </ul>
+        </div>
+    </span>
+
+</div>
+
+<table id="tbl" class="table table-striped table-bordered responsive">
+    <thead>
+    <tr>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.name'">名称</th>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.address'">地址</th>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.port'">端口</th>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.enable'">启用</th>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.status'">状态</th>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.description'">描述</th>
+        <th data-bind="i18n:'server.mgnt.cache.memcached.server.action'">操作</th>
+    </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+    <tr>
+        <td class="center"><!-- ko text:name--><!-- /ko --></td>
+        <td class="center"><!-- ko text:address--><!-- /ko --></td>
+        <td class="center"><!-- ko text:port--><!-- /ko --></td>
+        <td class="center">
+            <!-- ko if:enable -->
+            <span data-bind="i18n:'server.mgnt.cache.memcached.server.enable.yes'"></span>
+            <!-- /ko -->
+
+            <!-- ko ifnot:enable -->
+            <span data-bind="i18n:'server.mgnt.cache.memcached.server.enable.no'"></span>
+            <!-- /ko -->
+
+        </td>
+        <td class="center">
+            <span class="label-warning label label-default">不可用</span>
+        </td>
+        <td class="center"><!-- ko text:description--><!-- /ko --></td>
+        <td class="center">
+            <a class="btn btn-info"
+               data-bind="click: function(data,event){ $parent.action('update',data)}, clickBubble: false">
+                <i class="glyphicon glyphicon-edit icon-white"></i>
+                <span data-bind="i18n: 'common.update'"> 修改 </span>
+            </a>
+            <a class="btn btn-danger"
+               data-bind="click: function(data,event){ $parent.action('delete',data)}, clickBubble: false">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+                <span data-bind="i18n: 'common.delete'"> 修改 </span>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div id="pag_demo_grid1" class="well pagination-container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <ul id="pagination" class="pagination-md"></ul>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2 row-space">
+            <div class="input-group">
+                   <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go</button>
+                  </span>
+                <input id="goto_page_pag_demo_grid1"
+                       type="text"
+                       maxlength="11"
+                       class="form-control small-input"
+                       placeholder="Go to page"></div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2 row-space">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-list"></i>
+                        <span class="hidden-sm hidden-xs" data-bind="i18n:'common.search.size'">
+                        Size
+                        </span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">20</a></li>
+                    <li><a href="#">50</a></li>
+                    <li><a href="#">100</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-2 row-space">
+            <h5>
+                <span data-bind="i18n:'common.search.total'"></span>
+                <strong>23232323</strong>
+                <span data-bind="i18n:'common.search.pages'"></span>，
+                <strong>2233</strong>
+                <span data-bind="i18n:'common.search.records'"></span>
+            </h5>
+
+        </div>
+    </div>
+</div>
+</div>

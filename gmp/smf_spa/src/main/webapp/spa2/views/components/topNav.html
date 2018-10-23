@@ -1,0 +1,105 @@
+<!--
+page: spa/views/components/topNav.html
+description: Top navigator component for this application
+version: 1.0
+update: NA
+-->
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="width:auto">
+            <img alt="Charisma Logo" src="spa2/dep/chm/img/logo20.png" class="hidden-xs"/>
+            <span data-bind="i18n:'common.title'"></span>
+        </a>
+
+        <!-- show module switcher -->
+        <div>
+            <ul class="collapse navbar-collapse nav navbar-nav top-menu">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                        <i class="glyphicon glyphicon-star"></i> 切换模块
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">我的收藏夹</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">全局配置</a></li>
+                        <li><a href="#">系统配置</a></li>
+                        <li><a href="#">服务器配置</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">用户管理</a></li>
+                        <li><a href="#">界面管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">统计</a></li>
+                        <li><a href="#">系统监控</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <form class="navbar-search pull-left">
+                        <input placeholder="Search" class="search-query form-control col-md-10" name="query"
+                               type="text">
+                    </form>
+                </li>
+            </ul>
+
+            <!-- show user info area  -->
+            <div class="btn-group pull-right theme-container animated tada">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span class="hidden-sm hidden-xs" data-bind="text: user().name"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a data-value="classic" data-bind="click: logout">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                            <span data-bind="i18n: 'common.logout'"></span>
+                        </a>
+                    </li>
+                    <li class="divider" style="margin-bottom: 10px"></li>
+                    <li>
+                        <a data-bind="click: function(viewModel,event){switchLan('Chinese')}">
+                            <i class="whitespace"></i>
+                            <span data-bind="i18n: 'header.language.china'"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-bind="click: function(viewModel,event){switchLan('English')}">
+                            <i class="whitespace"></i>
+                            <span data-bind="i18n: 'header.language.english'"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- show languages -->
+            <div class="btn-group pull-right theme-container animated tada">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-tint"></i><span
+                        class="hidden-sm hidden-xs" data-bind="i18n:'header.theme.switch'">切换</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="themes" data-bind="foreach: themes">
+                    <li>
+                        <a data-bind="click:$parent.switchTheme">
+                            <!-- ko if: $data.name == $parent.currentTheme().name -->
+                            <i data-bind="css: 'glyphicon glyphicon-ok', attr:{name:$data.name}"></i>
+                            <!-- /ko -->
+
+                            <!-- ko if: $data.name != $parent.currentTheme().name -->
+                            <i data-bind="css: 'glyphicon whitespace', attr:{name:$data.name}"></i>
+                            <!-- /ko -->
+
+                            <span data-bind="text: displayName"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/theme/ThemeService.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/global/BaseCrudService.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/login/UserLoginService.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/components/convert/FieldInterceptor.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/init/BmfConfig.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/serverMgnt/MemcachedServerService.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/global/GlobalBeanFactory.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/user/UserWebSettingService.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/components/convert/IBeanConvertor.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/login/UserDtoBuilder.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/components/convert/CglibConverter.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/components/builder/IEntityBuilder.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/business/global/SystemIdChecker.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/facadeImpl/AdminUserMgntFacadeImpl.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/components/builder/IDtoBuilder.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/init/BmfBeanFactory.java
+/root/Desktop/workspace/projects/gdp/gmp/bmf/src/main/java/zjtech/bmf/common/NameConstants.java

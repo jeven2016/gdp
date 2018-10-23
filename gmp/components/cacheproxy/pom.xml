@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>components</artifactId>
+        <groupId>com.wzjtech</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>cacheproxy</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- <dependency>
+             <groupId>com.google.code.simple-spring-memcached</groupId>
+             <artifactId>simple-spring-memcached-parent</artifactId>
+             <version>3.5.0</version>
+             <type>pom</type>
+         </dependency>-->
+        <dependency>
+            <groupId>com.whalin</groupId>
+            <artifactId>Memcached-Java-Client</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.m3</groupId>
+            <artifactId>memcached-client-facade</artifactId>
+            <version>1.0.3</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.jsr107.ri</groupId>
+            <artifactId>cache-ri-impl</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jcache</groupId>
+            <artifactId>jcache</artifactId>
+            <version>1.0-dev-2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-jcache</artifactId>
+            <version>1.5.0-0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-web</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <!-- <dependency>
+             <groupId>org.glassfish.packager</groupId>
+             <artifactId>glassfish-jms</artifactId>
+             <version>3.2-b06</version>
+             <type>zip</type>
+         </dependency>
+         <dependency>
+             <groupId>org.glassfish.packager</groupId>
+             <artifactId>glassfish-jpa</artifactId>
+             <version>3.2-b06</version>
+             <type>zip</type>
+         </dependency>
+         <dependency>
+             <groupId>org.glassfish.packager</groupId>
+             <artifactId>glassfish-jca</artifactId>
+             <version>3.2-b06</version>
+             <type>zip</type>
+         </dependency>
+         <dependency>
+             <groupId>org.glassfish.packager</groupId>
+             <artifactId>glassfish-jts</artifactId>
+             <version>3.2-b06</version>
+             <type>zip</type>
+         </dependency>-->
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <directory>target</directory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+
+            <!-- <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-antrun-plugin</artifactId>
+                 <executions>
+                     <execution>
+                         <id>prepare-dependencies-repackage-copy</id>
+                         <phase>generate-resources</phase>
+                         <goals>
+                             <goal>run</goal>
+                         </goals>
+                         <configuration>
+                             <tasks>
+                                &lt;!&ndash; <copy todir="target/classes/com/cmcc/hibernate" overwrite="true">
+                                     <fileset dir="src/main/java/com/cmcc/hibernate">
+                                         <include name="**/*.hbm.xml"/>
+                                     </fileset>
+                                 </copy>&ndash;&gt;
+                             </tasks>
+                         </configuration>
+                     </execution>
+                 </executions>
+             </plugin>-->
+
+        </plugins>
+    </build>
+
+    <!-- <distributionManagement>
+         <repository>
+             <id>user-release</id>
+             <name>Release</name>
+             <url>http://localhost:9000/nexus/content/repositories/releases/</url>
+         </repository>
+
+         <snapshotRepository>
+             <id>user-snapshot</id>
+             <name>SNAPSHOTS</name>
+             <url>http://localhost:9000/nexus/content/repositories/snapshots/</url>
+         </snapshotRepository>
+     </distributionManagement>-->
+</project>

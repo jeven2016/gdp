@@ -1,0 +1,10 @@
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/result/ErrorCode.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/facade/IBaseFacade.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/exception/BaseException.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/result/IResult.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/util/JsonUtil.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/result/BaseDTO.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/util/DateTimeUtlil.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/util/net/NetAddressValidatorUtil.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/util/SecurityUtil.java
+/root/Desktop/workspace/projects/gdp/gmp/components/common/src/main/java/zjtech/common/result/IBaseDTO.java

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015. ZJTech Inc. All Rights Reserved.
+  -->
+
+<configuration debug="false" scan="true" scanPeriod="10 minutes">
+
+    <property name="smf_dir" value="/home/zjtech/Desktop/"/>
+    <property name="smf_file_name" value="smf"/>
+
+    <property name="bmf_dir" value="/home/zjtech/Desktop/"/>
+    <property name="bmf_file_name" value="bmf"/>
+
+    <property name="max_file_size" value="10MB"/>
+
+    <!--SMF appender-->
+    <appender name="smf" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${smf_dir}${smf_file_name}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%date |%level| [%thread] |body [%class.%method:%line] - %msg%n</pattern>
+        </encoder>
+        <!-- 固定产生多少个日志文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <minIndex>0</minIndex>
+            <maxIndex>30</maxIndex>
+            <fileNamePattern>${smf_dir}${smf_file_name}.%i.log</fileNamePattern>
+        </rollingPolicy>
+
+        <!--每个文件的大小 -->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>${max_file_size}</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!--BMF appender-->
+    <appender name="bmf" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${bmf_dir}${bmf_file_name}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%date |%level| [%thread] |body [%class.%method:%line] - %msg%n</pattern>
+        </encoder>
+        <!-- 固定产生多少个日志文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <minIndex>0</minIndex>
+            <maxIndex>30</maxIndex>
+            <fileNamePattern>${bmf_dir}${bmf_file_name}.%i.log</fileNamePattern>
+        </rollingPolicy>
+
+        <!--每个文件的大小 -->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>${max_file_size}</maxFileSize>
+        </triggeringPolicy>
+
+    </appender>
+
+    <logger name="zjtech.smf" level="WARN" additivity="false">
+        <appender-ref ref="smf"/>
+    </logger>
+
+    <logger name="zjtech.bmf" level="WARN" additivity="false">
+        <appender-ref ref="bmf"/>
+    </logger>
+
+    <!--<root level="INFO">
+        <appender-ref ref="smf"/>
+    </root>-->
+</configuration>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 开启注解事务 只对当前配置文件有效 -->
+<!--    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>-->
+
+
+    <!--Example for study-->
+   <!-- <bean id="pum" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+        <property name="persistenceXmlLocations">
+            <list>
+                <value>org/springframework/orm/jpa/domainDir/persistence-multi.xml</value>
+                <value>classpath:/my/package/*/custom-persistence.xml</value>
+                <value>classpath:META-INF/persistence.xml</value>
+            </list>
+        </property>
+        <property name="dataSources">
+            <map>
+                <entry key="localDataSource" value-ref="local-db"/>
+                <entry key="remoteDataSource" value-ref="remote-db"/>
+            </map>
+        </property>
+        &lt;!&ndash; if no datasource is specified, use this one &ndash;&gt;
+        <property name="defaultDataSource" ref="remoteDataSource"/>
+    </bean>
+
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitManager" ref="pum"/>
+        <property name="persistenceUnitName" value="myCustomUnit"/>
+    </bean>-->
+</beans>

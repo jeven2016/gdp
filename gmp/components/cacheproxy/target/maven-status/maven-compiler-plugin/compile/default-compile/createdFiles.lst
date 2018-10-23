@@ -1,0 +1,6 @@
+caches/interfaces/ICachedConfig.class
+caches/interfaces/IMemcachedProxy.class
+caches/memcached/MemCachedProxy.class
+caches/memcached/MemcachedConfigVO.class
+caches/interfaces/ICacheProxy.class
+caches/interfaces/IMemcachedConfig.class

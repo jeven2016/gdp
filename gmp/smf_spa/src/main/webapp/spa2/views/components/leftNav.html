@@ -1,0 +1,42 @@
+<!-- left menu starts -->
+<div class="col-sm-2 col-lg-2">
+    <div class="sidebar-nav">
+        <div id="menu" class="nav-canvas">
+            <!-- Menu 菜单 -->
+            <div class="nav-sm nav nav-stacked">
+            </div>
+            <ul class="nav nav-pills nav-stacked main-menu">
+                <li class="nav-header hidden-md">数据库集群</li>
+                <li class="accordion">
+                    <a href="#"><i class="glyphicon glyphicon-plus"></i><span>关系型数据库</span></a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="localdb_list.html">本地内存数据库</a></li>
+                        <li><a href="mysqldb_list.html">MySql</a></li>
+                        <li><a href="#">PostgreSQL</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">Oracle</a></li>
+                    </ul>
+                </li>
+                <li class="accordion">
+                    <a href="#"><i class="glyphicon glyphicon-plus"></i><span>NoSQL数据库</span></a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">MongoDB</a></li>
+                        <li><a href="#">CouchDB</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header hidden-md">缓存服务器</li>
+                <li><a class="ajax-link" href="#"><i
+                        class="glyphicon glyphicon-cog"></i><span> 本地缓存</span></a>
+                </li>
+                <li><a class="ajax-link" data-bind="click:function(data,event){clickItem('#memcached',event);}">
+                    <i class="glyphicon glyphicon-cog"></i><span> Memcached服务器</span></a>
+                </li>
+                <li><a class="ajax-link" href="#"><i
+                        class="glyphicon glyphicon-cog"></i><span> Redis服务器</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<!-- left menu ends -->

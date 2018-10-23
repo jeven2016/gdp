@@ -1,0 +1,76 @@
+<div>
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-inner">
+            <button type="button" class="navbar-toggle pull-left animated flip">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="width:auto">
+                <img alt="Charisma Logo" src="spa2/dep/chm/img/logo20.png" class="hidden-xs"/>
+                <span data-bind="i18n:'common.title'"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="ch-container">
+        <div class="row">
+            <div class="col-md-12 center login-header">
+                <h2 data-bind="i18n:'common.title'"></h2>
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+
+        <div class="row">
+            <div class="well col-md-5 center login-box">
+                <form id="loginForm" class="form-horizontal" data-bind="submit:login" method="post">
+                    <fieldset>
+                        <!-- ko if:errors().length > 0 -->
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <url data-bind="foreach: errors">
+                                <strong>
+                                    <li data-bind="text:message"></li>
+                                </strong>
+                            </url>
+                        </div>
+                        <!-- /ko -->
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                            <input id="userName" name="userName" type="text" class="form-control"
+                                   data-bind="value:userName,i18n:{placeholder:'login.username'}">
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                            <input id="password" name="password" type="password" class="form-control"
+                                   data-bind="value:password,i18n:{placeholder:'login.password'}">
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+
+                        <!--<div class="input-group input-group-md">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                            <input type="text" name="verifyCode" class="form-control"
+                                   placeholder="verifyCode" style="width:60%"/>
+                            <img src="" width="89"/>
+                        </div>-->
+
+                        <p class="center col-md-5">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <span class="glyphicon glyphicon-log-in"></span>
+                                <span data-bind="i18n:'common.button.login'"></span>
+                            </button>
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--/row-->
+
+</div>

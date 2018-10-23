@@ -1,0 +1,30 @@
+<!--
+page: spa/views/home/home.html
+description: Home page for this application
+version: 1.0
+update: NA
+-->
+<div>
+    <div id="header">
+        <div data-bind="compose:{model:'views/components/topNav', activationData:{}, activate:true,cacheViews:true}"></div>
+    </div>
+
+    <div class="ch-container">
+        <div class="row">
+            <!-- Left Slider List-->
+            <!--<left-nav params="loggedIn: loggedIn"></left-nav>-->
+            <div data-bind="compose:{model:'views/components/leftNav', activationData:{}, activate:true,cacheViews:true}"></div>
+            <!-- Left Slider List-End ->
+
+            <!-- Content -->
+            <!-- The correspoding view model will be loaded according to the name of the page defined in Route-->
+            <!--<div id="content" class="col-lg-10 col-sm-10" data-bind="component: { name: route().page, params: route }">
+            </div>-->
+
+            <div id="content" class="col-lg-10 col-sm-10" data-bind="router: { transition:'entrance' }">
+            </div>
+            <!-- Content End-->
+
+        </div>
+    </div>
+</div>
